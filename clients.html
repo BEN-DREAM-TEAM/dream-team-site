@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dream Team Transport — Clients & Partenaires</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+  <img class="logo-img" src="assets/logo.png" alt="Dream Team Transport">
+</a>
+
+      <div class="menu" id="menu">
+        <a href="services.html">Services</a>
+        <a href="ecologie.html">Écologie</a>
+        <a href="valeurs.html">Valeurs</a>
+        <a href="vision.html">Vision</a>
+        <a class="active" href="clients.html">Clients</a>
+        <a href="moyens.html">Moyens</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn devis" href="contact.html">Devis</a>
+        <button class="burger" id="burger">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="unified-hero clients-hero reveal">
+    <div class="container">
+      <span class="kicker">Confiance & collaborations</span>
+      <h1 class="page-title">Nos clients & partenaires</h1>
+      <p class="sub">Des acteurs variés nous confient leurs flux au quotidien. Voici un aperçu non exhaustif.</p>
+    </div>
+
+    <!-- poignée de main décorative -->
+    <svg class="handshake" viewBox="0 0 180 80" aria-hidden="true">
+      <defs>
+        <linearGradient id="shake" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="#0a66ff"/><stop offset="1" stop-color="#004fe3"/>
+        </linearGradient>
+      </defs>
+      <path d="M5 60 C40 40, 60 40, 85 55" fill="none" stroke="url(#shake)" stroke-width="8" stroke-linecap="round" opacity=".18"/>
+      <path d="M175 60 C140 40, 120 40, 95 55" fill="none" stroke="url(#shake)" stroke-width="8" stroke-linecap="round" opacity=".18"/>
+      <path d="M65 45 l15 12 a8 8 0 0 0 10 0 l15-12" fill="none" stroke="#0a66ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="60" cy="42" r="9" fill="#0a66ff" opacity=".12"/>
+      <circle cx="120" cy="42" r="9" fill="#0a66ff" opacity=".12"/>
+    </svg>
+  </header>
+
+  <main class="page reveal">
+    <div class="container">
+
+      <!-- Filtres -->
+      <div class="clients-filters">
+        <button class="chip active" data-filter="all">Tous</button>
+        <button class="chip" data-filter="retail">Retail</button>
+        <button class="chip" data-filter="logistique">Logistique</button>
+        <button class="chip" data-filter="industriel">Industriel</button>
+      </div>
+
+      <!-- GRID LOGOS -->
+      <div class="clients-board" id="clientsBoard">
+        <div class="clients-label">Clients et partenaires</div>
+
+        <!-- Mets tes bons chemins (Option A ou B que tu as choisie) -->
+        <article class="logo-card" data-cat="retail" title="Boulanger">
+          <img src="assets/boulanger.png" alt="Boulanger" loading="lazy">
+        </article>
+        <article class="logo-card" data-cat="logistique" title="XPO Logistics">
+          <img src="assets/xpo.png" alt="XPO Logistics" loading="lazy">
+        </article>
+        <article class="logo-card" data-cat="logistique" title="Geodis">
+          <img src="assets/geodis.png" alt="Geodis" loading="lazy">
+        </article>
+        <article class="logo-card" data-cat="logistique" title="Le Roy Logistique">
+          <img src="assets/leroy.png" alt="Le Roy Logistique" loading="lazy">
+        </article>
+        <article class="logo-card" data-cat="industriel" title="Aigle Group">
+          <img src="assets/aigle.png" alt="Aigle Group" loading="lazy">
+        </article>
+        <!-- placeholder en attendant ags.png -->
+        <article class="logo-card" data-cat="logistique" title="Partenaire">
+          <img src="assets/ags.png" alt="Partenaire" loading="lazy">
+        </article>
+      </div>
+
+      <p class="clients-note sub">
+        Les marques présentées ci-dessus correspondent à des collaborations réalisées ou en cours.  
+        Les logos demeurent la propriété de leurs détenteurs respectifs.
+      </p>
+    </div>
+
+    <!-- Marquee douce -->
+    <section class="marquee-band" aria-hidden="true">
+      <div class="marquee-track">
+        <img src="assets/boulanger.png" alt="">
+        <img src="assets/xpo.png" alt="">
+        <img src="assets/geodis.png" alt="">
+        <img src="assets/leroy.png" alt="">
+        <img src="assets/aigle.png" alt="">
+        <img src="assets/ags.png" alt="">
+        <!-- dupliquée pour boucle parfaite -->
+        <img src="assets/boulanger.png" alt="">
+        <img src="assets/xpo.png" alt="">
+        <img src="assets/geodis.png" alt="">
+        <img src="assets/leroy.png" alt="">
+        <img src="assets/aigle.png" alt="">
+        <img src="assets/ags.png" alt="">
+      </div>
+    </section>
+
+    <!-- Chiffres clés -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <div class="n"><span data-count="220">0</span>+</div>
+          <div class="t">Clients accompagnés</div>
+        </div>
+        <div class="stat">
+          <div class="n"><span data-count="3.8">0</span>M</div>
+          <div class="t">KM/an</div>
+        </div>
+        <div class="stat">
+          <div class="n"><span data-count="98.6">0</span>%</div>
+          <div class="t">Ponctualité</div>
+        </div>
+        <div class="stat">
+          <div class="n"><span data-count="62">0</span></div>
+          <div class="t">Villes desservies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="reviews-slider-alt">
+      <div class="container">
+        <h2 class="section-title">Ce que disent nos partenaires</h2>
+        <div class="carousel" id="carousel">
+          <article class="tcard">
+            <div class="head"><div class="ava">MC</div><div><b>Marie C.</b><div class="stars">★★★★★</div></div></div>
+            <p>Suivi clair, créneaux respectés même en période chargée. On continue&nbsp;!</p>
+          </article>
+          <article class="tcard">
+            <div class="head"><div class="ava">JP</div><div><b>Jean P.</b><div class="stars">★★★★★</div></div></div>
+            <p>Réactifs et pros. La communication fait vraiment la différence au quotidien.</p>
+          </article>
+          <article class="tcard">
+            <div class="head"><div class="ava">SB</div><div><b>Sofia B.</b><div class="stars">★★★★★</div></div></div>
+            <p>Gestion d’urgence impeccable, chargement délicat traité avec soin.</p>
+          </article>
+          <article class="tcard">
+            <div class="head"><div class="ava">RM</div><div><b>Romain M.</b><div class="stars">★★★★☆</div></div></div>
+            <p>Bon rapport qualité/prix, très bons retours de nos équipes expédition.</p>
+          </article>
+        </div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="client-cta">
+      <div class="container row">
+        <div class="cta-copy">
+          <h3>Vous souhaitez rejoindre nos partenaires&nbsp;?</h3>
+          <p>On vous propose un démarrage rapide, un interlocuteur unique et un suivi en temps réel.</p>
+        </div>
+        <a class="btn primary" href="contact.html">Discutons de vos flux</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container row">
+      <span>© <span id="year"></span> Dream Team Transport</span>
+      <div class="links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // année + menu burger
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('burger').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('open');
+    });
+
+    // ===== Filtres logos =====
+    const chips = [...document.querySelectorAll('.clients-filters .chip')];
+    const cards = [...document.querySelectorAll('.logo-card')];
+    chips.forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        chips.forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const f = chip.dataset.filter;
+        cards.forEach(c=>{
+          const ok = (f==='all' || c.dataset.cat===f);
+          c.style.opacity = ok ? '1' : '.15';
+          c.style.transform = ok ? 'translateY(0)' : 'scale(.98)';
+          c.style.pointerEvents = ok ? 'auto' : 'none';
+        });
+      });
+    });
+
+    // ===== Parallaxe légère au survol =====
+    cards.forEach(c=>{
+      c.addEventListener('mousemove', e=>{
+        const r = c.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width/2)) / r.width;
+        const dy = (e.clientY - (r.top + r.height/2)) / r.height;
+        c.style.transform = `rotateX(${ -dy*4 }deg) rotateY(${ dx*6 }deg) translateY(-2px)`;
+      });
+      c.addEventListener('mouseleave', ()=> c.style.transform = 'translateY(0)');
+    });
+
+    // ===== Compteurs =====
+    const counters = [...document.querySelectorAll('.stats .n span')];
+    const fmt = n => (n % 1 ? n.toFixed(1) : n.toFixed(0));
+    const runCounters = () => counters.forEach(el=>{
+      const target = parseFloat(el.dataset.count);
+      const dur = 1200, steps = 60, inc = target/steps;
+      let v = 0, i = 0;
+      const t = setInterval(()=>{
+        v += inc; i++;
+        if(i>=steps){ v = target; clearInterval(t); }
+        el.textContent = fmt(v);
+      }, dur/steps);
+    });
+    const io = new IntersectionObserver(es=>{
+      es.forEach(e=>{ if(e.isIntersecting){ runCounters(); io.disconnect(); }});
+    }, {threshold:.35});
+    io.observe(document.querySelector('.stats'));
+
+    // ===== Carousel témoignages =====
+    const car = document.getElementById('carousel');
+    const slides = [...car.children];
+    const dotsC = document.getElementById('dots');
+    slides.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.className = 'dot' + (i===0?' active':'');
+      b.addEventListener('click', ()=>go(i));
+      dotsC.appendChild(b);
+    });
+    let index = 0, auto;
+    const go = (i)=>{
+      index = (i+slides.length)%slides.length;
+      car.style.transform = `translateX(-${index*100}%)`;
+      [...dotsC.children].forEach((d,k)=>d.classList.toggle('active', k===index));
+      restart();
+    };
+    const next = ()=> go(index+1);
+    const restart = ()=>{ clearInterval(auto); auto = setInterval(next, 4000); };
+    restart();
+  </script>
+</body>
+</html>

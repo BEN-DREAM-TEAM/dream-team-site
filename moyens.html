@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dream Team Transport — Nos moyens</title>
+
+  <!-- Fonts + stylesheet global -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Styles spécifiques (esthétique ++ ) -->
+  <style>
+    :root{
+      --glass:bg(255 255 255 / .6);
+      --blur:12px;
+      --ring:rgba(10,102,255,.28);
+      --blue-1:#0a66ff;
+      --blue-2:#004fe3;
+      --bg-grad: radial-gradient(900px 400px at 70% -120px, rgba(10,102,255,.08), transparent 65%),
+                 radial-gradient(800px 360px at -10% -80px, rgba(10,102,255,.06), transparent 60%),
+                 linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
+    }
+
+    /* ===== HERO amélioré (ruban + motif) ===== */
+    .moyens-hero{
+      position:relative;
+      background:var(--bg-grad);
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .moyens-hero .ribbon{
+      position:absolute; inset:auto -15% -1px -15%;
+      height:180px; pointer-events:none;
+      background:
+        radial-gradient(280px 120px at 20% 0%, rgba(10,102,255,.28), transparent 60%),
+        radial-gradient(360px 160px at 60% 15%, rgba(10,102,255,.18), transparent 62%),
+        radial-gradient(260px 120px at 95% 5%, rgba(10,102,255,.22), transparent 60%);
+      filter:blur(10px);
+      opacity:.8;
+    }
+    .moyens-hero::before{
+      /* petit motif discret */
+      content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+      background-image:
+        linear-gradient(90deg, rgba(10,102,255,.05) 1px, transparent 1px),
+        linear-gradient(0deg,  rgba(10,102,255,.05) 1px, transparent 1px);
+      background-size:22px 22px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.2) 45%, transparent 80%);
+    }
+
+    /* ===== KPI glass ===== */
+    .snap{padding:28px 0 6px}
+    .snap .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr);width:min(1200px,92%);margin:0 auto}
+    .k{
+      grid-column:span 3; border:1px solid var(--line); border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.45));
+      -webkit-backdrop-filter:blur(var(--blur)); backdrop-filter:blur(var(--blur));
+      padding:18px; text-align:center; position:relative; overflow:hidden;
+      box-shadow:0 16px 44px rgba(10,20,60,.10);
+    }
+    .k::after{
+      content:""; position:absolute; inset:-1px -1px auto -1px; height:6px; border-radius:18px 18px 0 0;
+      background:linear-gradient(90deg, var(--blue-1), var(--blue-2));
+      opacity:.85;
+    }
+    .num{font-family:Outfit;font-weight:900;font-size:38px;letter-spacing:.5px}
+    .lab{color:var(--muted)}
+
+    /* ===== Blocs moyens (bord gauche coloré + icônes) ===== */
+    .blocks{padding:18px 0 10px}
+    .blocks .grid{display:grid;gap:18px;grid-template-columns:repeat(12,1fr);width:min(1200px,92%);margin:0 auto}
+    .blk{
+      grid-column:span 4; position:relative; padding:22px 22px 20px 26px;
+      background:#fff; border:1px solid var(--line); border-radius:18px;
+      box-shadow:0 18px 50px rgba(10,20,60,.10);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .blk::before{
+      content:""; position:absolute; inset:-1px auto -1px -1px; width:7px; border-radius:18px 0 0 18px;
+      background:linear-gradient(180deg, var(--blue-1), var(--blue-2));
+      box-shadow:0 0 0 6px rgba(10,102,255,.08);
+    }
+    .blk:hover{transform:translateY(-4px); box-shadow:0 26px 64px rgba(10,20,60,.14)}
+    .blk h3{font-family:Outfit;font-weight:800;margin-bottom:8px}
+    .blk p{color:var(--muted)}
+    .blk ul{display:grid;gap:10px;margin-top:10px}
+    .blk li{list-style:none;display:flex;gap:12px;align-items:flex-start}
+    .ico{width:26px;height:26px;flex:0 0 26px;color:var(--blue-1)}
+
+    /* ===== Flotte en carrousel doux (scroll-snap) ===== */
+    .fleet{padding:10px 0 6px}
+    .fleet .wrap{width:min(1200px,92%);margin:0 auto}
+    .rail{
+      display:grid; grid-auto-flow:column; grid-auto-columns: minmax(240px, 1fr);
+      gap:14px; overflow-x:auto; padding-bottom:6px; scroll-snap-type:x mandatory;
+    }
+    .veh{
+      scroll-snap-align:center; background:#fff;border:1px solid var(--line);border-radius:16px;
+      padding:16px; box-shadow:0 14px 40px rgba(10,20,60,.10);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .veh:hover{transform:translateY(-3px); box-shadow:0 20px 58px rgba(10,20,60,.13)}
+    .veh h4{font-family:Outfit;font-weight:800}
+    .veh .tag{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:999px;border:1px solid rgba(10,102,255,.22);color:#0a66ff;font-weight:700;font-size:12px}
+    .veh p{margin-top:6px;color:var(--muted);font-size:14px}
+
+    /* ===== Stack numérique + bande valorisation ===== */
+    .stack-zone{padding:16px 0 70px;background:
+      radial-gradient(700px 260px at 10% 0%, rgba(10,102,255,.05), transparent 60%),
+      linear-gradient(180deg,#fbfdff,#ffffff)}
+    .stack-zone .wrap{width:min(1200px,92%);margin:0 auto}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .chip{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;font-weight:700;box-shadow:0 8px 22px rgba(10,20,60,.06)}
+    .band{margin-top:18px;padding:18px 18px;border:1px dashed var(--ring);border-radius:16px;background:linear-gradient(180deg,#ffffff,#fbfdff)}
+    .band b{font-family:Outfit}
+
+    /* ===== CTA ===== */
+    .cta{padding:24px 0 84px}
+    .cta .box{width:min(1100px,92%);margin:0 auto;border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(180deg,#ffffff, #fbfdff);box-shadow:0 18px 60px rgba(10,20,60,.12);display:grid;gap:12px;justify-items:center;text-align:center}
+
+    /* ===== Responsive ===== */
+    @media (max-width:1200px){
+      .k, .blk{grid-column:span 6}
+    }
+    @media (max-width:720px){
+      .k, .blk{grid-column:1/-1}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+  <img class="logo-img" src="assets/logo.png" alt="Dream Team Transport">
+</a>
+
+      <div class="menu" id="menu">
+        <a href="services.html">Services</a>
+        <a href="ecologie.html">Écologie</a>
+        <a href="valeurs.html">Valeurs</a>
+        <a href="vision.html">Vision</a>
+        <a href="clients.html">Clients</a>
+        <a class="active" href="moyens.html">Moyens</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn devis" href="contact.html">Devis</a>
+        <button class="burger" id="burger">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO unifié & esthétique -->
+  <header class="unified-hero moyens-hero reveal">
+    <div class="container">
+      <span class="kicker">Ressources humaines & techniques</span>
+      <h1 class="page-title">Nos moyens</h1>
+      <p class="sub">Des équipes expérimentées, une flotte variée et des outils numériques modernes pour assurer ponctualité, sécurité et fiabilité — chaque jour.</p>
+    </div>
+    <div class="ribbon" aria-hidden="true"></div>
+  </header>
+
+  <!-- KPIs (glass) -->
+  <section class="snap reveal">
+    <div class="grid">
+      <div class="k"><div class="num" data-count="50">+50</div><div class="lab">chauffeurs qualifiés</div></div>
+      <div class="k"><div class="num" data-count="24">24/7</div><div class="lab">astreinte & suivi</div></div>
+      <div class="k"><div class="num" data-count="60">60+</div><div class="lab">véhicules (toutes tailles)</div></div>
+      <div class="k"><div class="num" data-count="100">100%</div><div class="lab">tracés en temps réel</div></div>
+    </div>
+  </section>
+
+  <!-- Blocs moyens -->
+  <section class="blocks reveal">
+    <div class="grid">
+      <article class="blk">
+        <h3>Humains</h3>
+        <p>Des équipes formées et engagées, au service de vos opérations.</p>
+        <ul>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4Z" stroke="currentColor" stroke-width="2"/></svg>
+            Chauffeurs qualifiés (FIMO/FCO), sensibilisés sécurité & éco-conduite.
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Répartiteurs & encadrement expérimentés, process documentés.
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Astreinte 24/7 pour imprévus, pics d’activité et urgences.
+          </li>
+        </ul>
+      </article>
+
+      <article class="blk">
+        <h3>Techniques</h3>
+        <p>Une flotte diversifiée et entretenue pour couvrir tous les besoins.</p>
+        <ul>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 16h13l3-6H8l-5 6Zm0 0v3m16-9v9m0 0h2M6 19h2m10 0h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Camionnettes, porteurs, poids lourds, semi-remorques & frigos.
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="2"/><path d="M8 7v10M16 7v10" stroke="currentColor" stroke-width="2"/></svg>
+            Options : hayon, bâché/tautliner, sangles, barres d’arrimage.
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Maintenance préventive & contrôles systématiques.
+          </li>
+        </ul>
+      </article>
+
+      <article class="blk">
+        <h3>Sécurité & conformité</h3>
+        <p>La sécurité des personnes et des marchandises au cœur de nos pratiques.</p>
+        <ul>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5a9 9 0 1 1-16 0V7l8-4Z" stroke="currentColor" stroke-width="2"/></svg>
+            EPI, consignes de sécurité, sensibilisation angles morts.
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v6H4z" stroke="currentColor" stroke-width="2"/><path d="M4 14h10M4 18h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Assurance RC pro & marchandises, procédures d’incident.
+          </li>
+          <li>
+            <svg class="ico" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Traçabilité documentaire & conformité réglementaire.
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Flotte en carrousel -->
+  <section class="fleet reveal">
+    <div class="wrap">
+      <h2 class="section-title">Flotte disponible</h2>
+      <p class="sub">Nous dimensionnons le bon format de véhicule selon vos volumes, accès et contraintes horaires.</p>
+      <div class="rail">
+        <article class="veh"><h4>Camionnettes</h4><span class="tag">3,5 t</span><p>Urbain & express. Idéal pour petites quantités et centres-villes.</p></article>
+        <article class="veh"><h4>Porteurs</h4><span class="tag">12 t</span><p>Polyvalents avec hayon, parfaits pour livraisons en magasin.</p></article>
+        <article class="veh"><h4>Poids lourds</h4><span class="tag">19 t</span><p>Volumes plus importants, équipements d’arrimage complets.</p></article>
+        <article class="veh"><h4>Semi-remorques</h4><span class="tag">Tautliner / Frigo</span><p>Distribution régionale & nationale, bâché ou frigorifique.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack numérique -->
+  <section class="stack-zone reveal">
+    <div class="wrap">
+      <h2 class="section-title">Outils & suivi en temps réel</h2>
+      <p class="sub">Planification optimisée, tracking live, preuves de livraison (POD) et rapports de performance.</p>
+
+      <div class="chips">
+        <span class="chip">GPS temps réel</span>
+        <span class="chip">Optimisation d’itinéraires</span>
+        <span class="chip">Portail client</span>
+        <span class="chip">Preuves de livraison</span>
+        <span class="chip">Alertes & notifications</span>
+        <span class="chip">Rapports & KPI</span>
+      </div>
+
+      <div class="band">
+        <b>Effets directs :</b> réduction des trajets à vide, meilleure ponctualité (OTD), communication proactive et traçabilité de bout en bout.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta reveal">
+    <div class="box">
+      <h2 class="page-title">Besoin d’une solution sur mesure&nbsp;?</h2>
+      <p class="sub">Expliquez-nous vos flux et contraintes : nous alignons équipes, flotte et outils pour un démarrage rapide.</p>
+      <div>
+        <a class="btn primary" href="contact.html">Demander un devis</a>
+        <a class="btn outline" href="services.html" style="margin-left:8px">Voir nos services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container row">
+      <span>© <span id="year"></span> Dream Team Transport</span>
+    </div>
+  </footer>
+
+  <script>
+    // année + burger
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('burger').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('open');
+    });
+
+    // (optionnel) petite animation de compteur sur desktop
+    const nums = document.querySelectorAll('.num[data-count]');
+    const obs = new IntersectionObserver(es=>{
+      es.forEach(e=>{
+        if(!e.isIntersecting) return;
+        const el = e.target; const target = parseInt(el.dataset.count,10);
+        let cur = 0; const step = Math.max(1, Math.round(target/40));
+        const t = setInterval(()=>{
+          cur += step; if(cur >= target){cur = target; clearInterval(t);}
+          el.textContent = (el.dataset.count==='24'?'24/7': (el.dataset.count==='100'?cur+'%':'+'+cur));
+        },22);
+        obs.unobserve(el);
+      });
+    },{threshold:.6});
+    nums.forEach(n=>obs.observe(n));
+  </script>
+</body>
+</html>

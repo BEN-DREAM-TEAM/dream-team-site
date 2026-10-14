@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dream Team Transport — Valeurs</title>
+
+  <!-- Thème global -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Styles spécifiques à la page Valeurs -->
+  <style>
+    /* sections valeurs : on les rend plus "scéniques" */
+    .values-section{
+      padding:64px 0;
+    }
+
+    /* 1er bloc : fond très léger */
+    .values-section:first-of-type{
+      background:linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
+      border-bottom:1px solid var(--line);
+    }
+
+    /* 2e bloc : bande claire pour bien séparer */
+    .values-section:nth-of-type(2){
+      background:linear-gradient(180deg,#f9fbff 0%, #ffffff 100%);
+    }
+
+    /* petit texte d'intro centré sous le titre */
+    .values-intro{
+      max-width:720px;
+      margin:10px auto 26px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    /* ======= VALEURS CLÉS — design premium + correction hover ======= */
+    .pillars-grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(12,1fr);
+    }
+    .pillar{
+      grid-column:span 4;
+      position:relative;
+      overflow:hidden;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 16px 44px rgba(10,20,60,.10);
+      padding:20px 18px 56px;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      isolation:isolate;
+      min-height:240px; /* Empêche tout décalage du contenu au survol */
+    }
+    .pillar:hover{
+      transform:translateY(-6px);
+      box-shadow:0 28px 72px rgba(10,20,60,.16);
+      border-color:#cfe0ff;
+    }
+    /* halo bleu animé sur l’arrête gauche */
+    .pillar::before{
+      content:"";
+      position:absolute; inset:0 auto 0 0;
+      width:6px;
+      background:linear-gradient(180deg,#0a66ff,#4c8dff,#0a66ff);
+      filter:saturate(120%);
+      opacity:.8;
+      animation:flow 2.8s linear infinite;
+    }
+    @keyframes flow{0%{opacity:.55}50%{opacity:1}100%{opacity:.55}}
+
+    /* grande numérotation en filigrane */
+    .pillar .ghost{
+      position:absolute; right:10px; top:-8px;
+      font-family:'Outfit',Inter,sans-serif;
+      font-weight:900; font-size:72px; line-height:1;
+      color:#0a66ff12; pointer-events:none; user-select:none;
+    }
+    /* icône ronde */
+    .pillar .icon{
+      width:44px; height:44px; border-radius:999px;
+      display:grid; place-items:center;
+      background:#f2f7ff; border:1px solid #e3edff;
+      box-shadow:inset 0 0 0 4px rgba(10,102,255,.10);
+      margin-bottom:10px;
+      font-weight:900; color:#0a3a9e; letter-spacing:.04em;
+    }
+    .pillar h3{
+      font-family:'Outfit',Inter,sans-serif;
+      font-size:20px; margin-bottom:6px; position:relative; z-index:1;
+    }
+    .pillar p.sub{
+      color:var(--muted); margin:0; position:relative; z-index:1;
+    }
+
+    /* Barre “Concrètement” : apparaît par-dessus sans pousser le contenu */
+    .pillar .more{
+      position:absolute; left:0; right:0; bottom:0;
+      padding:12px 16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 30%);
+      border-top:1px dashed var(--line);
+      transform:translateY(110%);  /* cachée juste sous la carte */
+      transition:transform .22s ease;
+      pointer-events:none;         /* ne casse pas le hover */
+    }
+    .pillar:hover .more{ transform:translateY(0); pointer-events:auto; }
+    .pillar .more b{
+      font-size:12px; text-transform:uppercase; letter-spacing:.12em; color:#0a66ff
+    }
+    .pillar .more p{ margin-top:6px; color:var(--muted); font-size:14px }
+
+    /* Principes d’action + Promesse */
+    .principles{
+      display:grid; gap:18px; grid-template-columns:repeat(12,1fr); margin-top:10px
+    }
+    .principle{
+      grid-column:span 6;
+      background:conic-gradient(from 180deg at 50% 50%, #ffffff, #ffffff, #f9fbff);
+      border:1px solid var(--line); border-radius:16px; padding:16px 18px;
+      box-shadow:0 12px 30px rgba(10,20,60,.08)
+    }
+    .principle h4{ font-family:'Outfit',Inter,sans-serif; margin-bottom:6px; font-size:18px }
+    .principle p{ color:var(--muted); margin:0 }
+
+    .pledge{
+      margin-top:22px; padding:22px; border-radius:18px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#fbfdff,#ffffff);
+      box-shadow:0 16px 42px rgba(10,20,60,.10);
+    }
+    .pledge h3{ font-family:'Outfit',Inter,sans-serif; font-size:22px; margin-bottom:8px }
+    .pledge p{ color:var(--muted) }
+    .signature{ margin-top:12px; display:flex; align-items:center; gap:12px; font-style:italic; color:#0d1b2a; }
+    .signature .line{ flex:0 0 160px; height:2px; background:#0a66ff; border-radius:2px }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .pillar{ grid-column:span 12 }
+      .principle{ grid-column:span 12 }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+        <img class="logo-img" src="assets/logo.png" alt="Dream Team Transport">
+      </a>
+
+      <div class="menu" id="menu">
+        <a href="services.html">Services</a>
+        <a href="ecologie.html">Écologie</a>
+        <a class="active" href="valeurs.html">Valeurs</a>
+        <a href="vision.html">Vision</a>
+        <a href="clients.html">Clients</a>
+        <a href="moyens.html">Moyens</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn devis" href="contact.html">Devis</a>
+        <button class="burger" id="burger" aria-label="Ouvrir le menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- EN-TÊTE UNIFIÉ -->
+  <header class="unified-hero reveal">
+    <div class="container">
+      <span class="kicker">Ce qui nous guide</span>
+      <h1 class="page-title">Nos valeurs</h1>
+      <p class="sub">Des engagements concrets au quotidien : fiabilité, respect, transparence et responsabilité — parce qu’un bon transporteur, c’est d’abord une éthique de service.</p>
+    </div>
+  </header>
+
+  <!-- CONTENU PRINCIPAL AVEC LAYOUT GLOBAL -->
+  <main class="page-main">
+    <!-- ======= VALEURS CLÉS ======= -->
+    <section class="values-section reveal" aria-labelledby="values-title">
+      <div class="container">
+        <h2 id="values-title" class="section-title">Valeurs clés</h2>
+        <p class="values-intro">
+          Ce sont les repères qui structurent chacune de nos décisions : dans la planification, sur la route et chez vos clients.
+        </p>
+
+        <div class="pillars-grid">
+          <!-- 01 -->
+          <article class="pillar">
+            <span class="ghost">01</span>
+            <div class="icon">FR</div>
+            <h3>Fiabilité</h3>
+            <p class="sub">Des livraisons à l’heure, des engagements tenus, une organisation stable et prévisible.</p>
+            <div class="more">
+              <b>Concrètement</b>
+              <p>KPIs de ponctualité, procédures d’alerte, remédiation documentée.</p>
+            </div>
+          </article>
+
+          <!-- 02 -->
+          <article class="pillar">
+            <span class="ghost">02</span>
+            <div class="icon">FL</div>
+            <h3>Flexibilité</h3>
+            <p class="sub">Des solutions qui s’adaptent à vos contraintes : volumes, horaires, urgences, saisons.</p>
+            <div class="more">
+              <b>Concrètement</b>
+              <p>Créneaux étendus, renforts temporaires, véhicule taillé pour la mission.</p>
+            </div>
+          </article>
+
+          <!-- 03 -->
+          <article class="pillar">
+            <span class="ghost">03</span>
+            <div class="icon">TR</div>
+            <h3>Transparence</h3>
+            <p class="sub">Communication claire, infos en temps réel, process et responsabilités documentés.</p>
+            <div class="more">
+              <b>Concrètement</b>
+              <p>Notifications d’étapes, POD systématique, compte-rendu d’anomalies.</p>
+            </div>
+          </article>
+
+          <!-- 04 -->
+          <article class="pillar">
+            <span class="ghost">04</span>
+            <div class="icon">SE</div>
+            <h3>Sécurité</h3>
+            <p class="sub">Équipes formées, procédures strictes, manutention soignée et tracée.</p>
+            <div class="more">
+              <b>Concrètement</b>
+              <p>Briefs HSE, EPI, contrôle matériel, checklists départ/arrivée.</p>
+            </div>
+          </article>
+
+          <!-- 05 -->
+          <article class="pillar">
+            <span class="ghost">05</span>
+            <div class="icon">RS</div>
+            <h3>Respect</h3>
+            <p class="sub">Respect des personnes, des marchandises, des sites clients et de l’environnement.</p>
+            <div class="more">
+              <b>Concrètement</b>
+              <p>Code de conduite, propreté des zones, discrétion, politesse, tri.</p>
+            </div>
+          </article>
+
+          <!-- 06 -->
+          <article class="pillar">
+            <span class="ghost">06</span>
+            <div class="icon">RE</div>
+            <h3>Responsabilité</h3>
+            <p class="sub">Amélioration continue, réduction de l’empreinte, accompagnement durable.</p>
+            <div class="more">
+              <b>Concrètement</b>
+              <p>Revues trimestrielles, objectifs CO₂, plans d’action et reporting.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principes d'action + Promesse -->
+    <section class="values-section reveal" aria-labelledby="principles-title">
+      <div class="container">
+        <h2 id="principles-title" class="section-title">Principes d’action</h2>
+        <p class="values-intro">
+          Comment ces valeurs se traduisent au quotidien dans nos échanges avec vos équipes et vos clients finaux.
+        </p>
+
+        <div class="principles">
+          <div class="principle">
+            <h4>Communication proactive</h4>
+            <p>Informer tôt des aléas, proposer des alternatives, confirmer chaque étape clé.</p>
+          </div>
+          <div class="principle">
+            <h4>Qualité mesurable</h4>
+            <p>Indicateurs suivis, non-conformités tracées, amélioration continue.</p>
+          </div>
+          <div class="principle">
+            <h4>Respect des sites</h4>
+            <p>Règles HSE, EPI, consignes spécifiques, cordialité et discrétion.</p>
+          </div>
+          <div class="principle">
+            <h4>Exigence de service</h4>
+            <p>Niveau d’exigence élevé, formation régulière, capitalisation des retours.</p>
+          </div>
+        </div>
+
+        <div class="pledge">
+          <h3>Notre promesse</h3>
+          <p>Chaque course est traitée comme si elle était la plus importante de la journée. Nous préférons prévenir, expliquer et corriger vite, plutôt que d’excuser plus tard.</p>
+          <div class="signature">
+            <span class="line" aria-hidden="true"></span>
+            <span>— L’équipe Dream Team Transport</span>
+          </div>
+          <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+            <a class="btn outline" href="ecologie.html">Voir nos engagements écologiques</a>
+            <a class="btn primary" href="contact.html">Parler à un responsable</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container row">
+      <span>© <span id="year"></span> Dream Team Transport</span>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('burger').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dream Team Transport — Contact</title>
+
+  <!-- Thème global -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+        <img class="logo-img" src="assets/logo.png" alt="Dream Team Transport">
+      </a>
+
+      <div class="menu" id="menu">
+        <a href="services.html">Services</a>
+        <a href="ecologie.html">Écologie</a>
+        <a href="valeurs.html">Valeurs</a>
+        <a href="vision.html">Vision</a>
+        <a href="clients.html">Clients</a>
+        <a href="moyens.html">Moyens</a>
+        <a class="active" href="contact.html">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="btn devis" href="contact.html">Devis</a>
+        <button class="burger" id="burger" aria-label="Ouvrir le menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- EN-TÊTE UNIFIÉ -->
+  <header class="unified-hero reveal">
+    <div class="container">
+      <span class="kicker">Nous écrire</span>
+      <h1 class="page-title">Contact & devis</h1>
+      <p class="sub">
+        Une question, un besoin ponctuel ou un démarrage de partenariat ? 
+        Laissez-nous les détails de vos flux, nous revenons vers vous rapidement.
+      </p>
+    </div>
+  </header>
+
+  <!-- ====== CONTACT ====== -->
+  <main class="page reveal">
+    <section class="values-section">
+      <div class="container contact-grid">
+        <!-- FORMULAIRE -->
+        <div class="card contact-form">
+          <h2 class="section-title">Envoyer un message</h2>
+          <p class="sub">Le formulaire ouvre automatiquement votre logiciel de messagerie avec tous les champs pré-remplis.</p>
+
+          <!-- IMPORTANT : tous les mails partent vers transport@dreamteamservice.com -->
+          <form
+            action="mailto:transport@dreamteamservice.com"
+            method="POST"
+            enctype="text/plain"
+          >
+            <div class="form-row">
+              <div class="field">
+                <input type="text" id="nom" name="Nom" required />
+                <label for="nom">Nom & prénom</label>
+              </div>
+              <div class="field">
+                <input type="text" id="societe" name="Société" />
+                <label for="societe">Société (facultatif)</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <input type="email" id="email" name="Email" required />
+              <label for="email">Adresse e-mail</label>
+            </div>
+
+            <div class="field">
+              <input type="tel" id="tel" name="Téléphone" />
+              <label for="tel">Téléphone (facultatif)</label>
+            </div>
+
+            <div class="field">
+              <select id="sujet" name="Sujet">
+                <option value="" selected>Choisir un sujet</option>
+                <option value="Devis transport">Demande de devis transport</option>
+                <option value="Information">Demande d’information</option>
+                <option value="Partenariat">Proposition de partenariat</option>
+                <option value="Autre">Autre</option>
+              </select>
+              <label for="sujet">Sujet</label>
+            </div>
+
+            <div class="field">
+              <textarea id="message" name="Message" required></textarea>
+              <label for="message">Votre message</label>
+            </div>
+
+            <label class="check">
+              <input type="checkbox" required />
+              <span>J’accepte que mes données soient utilisées pour être recontacté.</span>
+            </label>
+
+            <div class="actions">
+              <button type="submit" class="btn primary">Envoyer le message</button>
+              <button type="reset" class="btn outline">Effacer</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- INFOS CONTACT + MAP -->
+        <aside class="contact-side">
+          <div class="card soft">
+            <h3>Coordonnées directes</h3>
+            <ul class="contact-list">
+              <li>
+                <div class="ci">📍</div>
+                <div>
+                  <b>Zone Île-de-France & national</b><br>
+                  Départs quotidiens selon vos besoins.
+                </div>
+              </li>
+              <li>
+                <div class="ci">✉️</div>
+                <div>
+                  <b>Email principal</b><br>
+                  transport@dreamteamservice.com
+                </div>
+              </li>
+              <li>
+                <div class="ci">📞</div>
+                <div>
+                  <b>Téléphone (exemple)</b><br>
+                  06 00 00 00 00
+                </div>
+              </li>
+            </ul>
+
+            <div class="badges">
+              <span class="pill">Réponse rapide</span>
+              <span class="pill">Devis personnalisé</span>
+              <span class="pill">Partenariat long terme</span>
+            </div>
+          </div>
+
+          <div class="card map-card">
+            <div class="map-title">
+              <h3>Zone d’intervention</h3>
+              <p class="sub">Basés en Île-de-France avec capacité de couverture nationale selon les missions.</p>
+            </div>
+            <!-- Placeholder de carte (tu pourras remplacer par un vrai iframe Google Maps plus tard) -->
+            <div class="map-placeholder">
+              <div class="pulse" aria-hidden="true"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ SIMPLE -->
+    <section class="values-section faq">
+      <div class="container">
+        <h2 class="section-title">Questions fréquentes</h2>
+        <div class="accordion">
+          <details>
+            <summary>En combien de temps répondez-vous aux demandes de devis&nbsp;?</summary>
+            <p>En général sous 24h ouvrées, et souvent plus rapidement pour les demandes urgentes.</p>
+          </details>
+          <details>
+            <summary>Pouvez-vous gérer des tournées récurrentes&nbsp;?</summary>
+            <p>Oui, nous pouvons étudier des schémas récurrents (tournées, navettes, lignes régulières) avec un planning dédié.</p>
+          </details>
+          <details>
+            <summary>Travaillez-vous uniquement en Île-de-France&nbsp;?</summary>
+            <p>Notre cœur d’activité est en région parisienne, mais nous pouvons assurer des liaisons nationales selon les projets.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container row">
+      <span>© <span id="year"></span> Dream Team Transport</span>
+      <div class="links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS global -->
+  <script src="assets/app.js"></script>
+
+  <!-- JS léger pour les labels flottants du formulaire -->
+  <script>
+    // année dynamique dans le footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // labels flottants (classe .filled utilisée dans ton style.css)
+    document.querySelectorAll('.field input, .field textarea, .field select')
+      .forEach((el) => {
+        const toggleFilled = () => {
+          if (el.value.trim() !== '') {
+            el.classList.add('filled');
+          } else {
+            el.classList.remove('filled');
+          }
+        };
+        el.addEventListener('blur', toggleFilled);
+        el.addEventListener('input', toggleFilled);
+        // état initial
+        toggleFilled();
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dream Team Transport — Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* Spécifique services : cartes */
+    .service-list{display:grid;gap:22px;margin-top:26px}
+    .service-v{
+      display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+      border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:16px;
+      padding:18px;background:#fff;box-shadow:0 14px 38px rgba(10,20,60,.10);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .service-v:hover{transform:translateY(-6px);box-shadow:0 26px 70px rgba(10,20,60,.16);border-color:#004fe3}
+    .badge-num{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-weight:900;border:1px solid var(--line);background:#fff;color:#0d1b2a;box-shadow:inset 0 0 0 4px rgba(10,102,255,.12)}
+    .service-v h3{font-family:Outfit,Inter,sans-serif;font-size:22px;margin:2px 0 6px}
+    .service-v p{color:var(--muted)}
+    @media (max-width:980px){.service-v{grid-template-columns:1fr}.badge-num{width:46px;height:46px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+  <img class="logo-img" src="assets/logo.png" alt="Dream Team Transport">
+</a>
+
+      <div class="menu" id="menu">
+        <a class="active" href="services.html">Services</a>
+        <a href="ecologie.html">Écologie</a>
+        <a href="valeurs.html">Valeurs</a>
+        <a href="vision.html">Vision</a>
+        <a href="clients.html">Clients</a>
+        <a href="moyens.html">Moyens</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn devis" href="contact.html">Devis</a>
+        <button class="burger" id="burger" aria-label="Ouvrir le menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- EN-TÊTE UNIFIÉ -->
+  <header class="unified-hero reveal">
+    <div class="container">
+      <span class="kicker">Ce que nous faisons</span>
+      <h1 class="page-title">Nos services</h1>
+      <p class="sub">Des solutions de transport fiables et adaptées : du quotidien aux urgences, en Île-de-France et partout en France.</p>
+    </div>
+  </header>
+
+ <main class="page reveal">
+  <section class="services-intro">
+    <div class="container">
+      <h2 class="section-title">Des services pensés pour vos flux réels</h2>
+      <p class="sub">
+        Qu’il s’agisse de tournées régulières, de livraisons e-commerce ou de demandes urgentes,
+        Dream Team Transport construit un schéma adapté à votre activité, pas l’inverse.
+      </p>
+
+      <div class="services-highlights">
+        <div class="highlight">
+          <span class="hl-icon">⏱</span>
+          <div>
+            <h3>Réactivité opérationnelle</h3>
+            <p>Dispatch en temps réel, prise en charge rapide et communication transparente.</p>
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="hl-icon">📍</span>
+          <div>
+            <h3>Suivi géolocalisé</h3>
+            <p>Traçabilité claire des enlèvements, livraisons et éventuels aléas de route.</p>
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="hl-icon">♻️</span>
+          <div>
+            <h3>Impact maîtrisé</h3>
+            <p>Optimisation des tournées & politique CO₂ alignée sur vos engagements RSE.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grille des services -->
+  <section class="services-grid-section">
+    <div class="container">
+      <div class="services-grid">
+        <!-- Carte 1 -->
+        <article class="service-card">
+          <div class="service-tag">Régulier</div>
+          <h3>Tournées quotidiennes & hebdomadaires</h3>
+          <p>
+            Mise en place de circuits fixes pour vos magasins, dépôts, agences ou clients B2B.
+            Horaires maîtrisés, mêmes conducteurs et reporting simple.
+          </p>
+          <ul class="service-list">
+            <li>Horaires définis à l’avance</li>
+            <li>Conducteurs référents</li>
+            <li>Reporting mensuel synthétique</li>
+          </ul>
+          <div class="service-meta">
+            <span>Idéal pour&nbsp;: réseaux de points de vente, B2B récurrent.</span>
+          </div>
+        </article>
+
+        <!-- Carte 2 -->
+        <article class="service-card">
+          <div class="service-tag urgent">Urgent</div>
+          <h3>Courses express & navettes dédiées</h3>
+          <p>
+            Pour vos envois sensibles : documents, pièces critiques, livraison hors créneaux classiques,
+            navette à la demande dédiée à votre flux.
+          </p>
+          <ul class="service-list">
+            <li>Prise en charge rapide</li>
+            <li>Transport direct sans rupture de charge</li>
+            <li>Communication en temps réel</li>
+          </ul>
+          <div class="service-meta">
+            <span>Idéal pour&nbsp;: pièces urgentes, dossiers, clients VIP.</span>
+          </div>
+        </article>
+
+        <!-- Carte 3 -->
+        <article class="service-card">
+          <div class="service-tag digital">E-commerce</div>
+          <h3>Livraisons e-commerce & B2C</h3>
+          <p>
+            Gestion de vos flux web : enlèvement en entrepôt, préparation des tournées,
+            créneaux de livraison adaptés à la clientèle finale.
+          </p>
+          <ul class="service-list">
+            <li>Adapté aux pics de volume</li>
+            <li>Créneaux annoncés & SMS possibles</li>
+            <li>Retour d’informations structuré</li>
+          </ul>
+          <div class="service-meta">
+            <span>Idéal pour&nbsp;: marques, e-shops, DNVB.</span>
+          </div>
+        </article>
+
+        <!-- Carte 4 -->
+        <article class="service-card">
+          <div class="service-tag custom">Sur-mesure</div>
+          <h3>Solutions personnalisées & projets spéciaux</h3>
+          <p>
+            Étude de vos besoins, audit des flux actuels et construction d’un schéma
+            transport sur-mesure : saisonnalité, multi-sites, contraintes horaires, etc.
+          </p>
+          <ul class="service-list">
+            <li>Audit des flux existants</li>
+            <li>Proposition chiffrée claire</li>
+            <li>Phase test puis déploiement</li>
+          </ul>
+          <div class="service-meta">
+            <span>Idéal pour&nbsp;: refonte logistique, nouveaux projets.</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bandeau "comment ça se passe ?" -->
+  <section class="services-flow">
+    <div class="container">
+      <div class="flow-card">
+        <h2 class="section-title">Comment se déroule une mise en place&nbsp;?</h2>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="step-badge">1</span>
+            <h3>Échange & diagnostic</h3>
+            <p>Compréhension de vos flux, contraintes, volumes et attentes clients.</p>
+          </div>
+          <div class="flow-step">
+            <span class="step-badge">2</span>
+            <h3>Proposition de schéma</h3>
+            <p>Itinéraires, horaires, typologie de véhicules, indicateurs de suivi.</p>
+          </div>
+          <div class="flow-step">
+            <span class="step-badge">3</span>
+            <h3>Phase test accompagnée</h3>
+            <p>Suivi rapproché des premières semaines, ajustements si nécessaire.</p>
+          </div>
+          <div class="flow-step">
+            <span class="step-badge">4</span>
+            <h3>Régime de croisière</h3>
+            <p>Reporting régulier, points fixes avec votre interlocuteur dédié.</p>
+          </div>
+        </div>
+
+        <div class="flow-cta">
+          <p>Vous avez un besoin précis en tête&nbsp;?</p>
+          <a href="contact.html" class="btn primary">Parlons de votre projet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <footer class="footer"><div class="container row"><span>© <span id="year"></span> Dream Team Transport</span></div></footer>
+  <script src="assets/app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('burger').addEventListener('click',()=>document.getElementById('menu').classList.toggle('open'));
+  </script>
+</body>
+</html>
