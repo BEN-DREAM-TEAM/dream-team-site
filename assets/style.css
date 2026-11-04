@@ -806,6 +806,9 @@ section{padding:76px 0}
   .vision-roadmap .mile:last-of-type{ width:150px; }
 }
 @media (min-width:981px){
+  .eco-timeline .eco-item{ width:190px; }
+}
+@media (min-width:981px){
   .eco-timeline .eco-item:last-of-type{ width:150px; }
 }
 @media (min-width:721px) and (max-width:980px){
