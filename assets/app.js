@@ -1,4 +1,4 @@
-/* ========== FILE: assets/app.js (v3) ========== */
+/* ========== FILE: assets/app.js (v3) — menu, année, effets ========== */
 // Année dynamique dans le pied de page
 document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
 
