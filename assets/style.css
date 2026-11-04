@@ -759,3 +759,21 @@ section{padding:76px 0}
   }
 }
 
+/* ====== Correctif : libellé des listes déroulantes toujours au-dessus ====== */
+.field select + label{ top:-10px; font-size:12px; }
+
+/* ====== Plan d'accès (page Contact) ====== */
+.map-embed{ position:relative; margin-top:16px; height:300px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#eef2f7; overflow:hidden; }
+.map-embed iframe{ position:absolute; top:-50px; left:-50px; width:calc(100% + 100px); height:calc(100% + 100px); border:0; pointer-events:none; filter:saturate(.85) contrast(1.02); }
+.map-credit{ position:absolute; bottom:8px; right:10px; z-index:2; font-size:11px; color:var(--muted); background:rgba(255,255,255,.85); padding:2px 8px; border-radius:8px; }
+.map-credit a{ color:inherit; text-decoration:underline; }
+.map-info{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:16px 20px 18px; background:#fff; }
+.map-info .pin{ flex:none; width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg,#0a66ff,#3d8bff); color:#fff; box-shadow:0 6px 16px rgba(10,102,255,.35); }
+.map-info .addr{ flex:1 1 180px; min-width:0; line-height:1.35; }
+.map-info .addr b{ display:block; color:var(--ink); }
+.map-info .addr span{ color:var(--muted); font-size:14px; }
+.map-info .map-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+.map-info .map-actions a{ display:inline-flex; align-items:center; gap:6px; padding:9px 14px; border-radius:12px; font-weight:700; font-size:14px; border:1px solid var(--line); background:#fff; color:var(--ink); transition:.2s ease; }
+.map-info .map-actions a.primary{ background:var(--blue); border-color:var(--blue); color:#fff; }
+.map-info .map-actions a:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(10,20,60,.10); }
+@media (max-width:600px){ .map-embed{ height:240px; } }
