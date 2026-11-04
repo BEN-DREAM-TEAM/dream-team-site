@@ -10,6 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+    .form-status{ margin-top:14px; padding:12px 14px; border-radius:12px; font-weight:600; font-size:14px; line-height:1.45; }
+    .form-status.ok{ background:#ecfdf3; color:#127a3f; border:1px solid #b7ebcb; }
+    .form-status.err{ background:#fff1f1; color:#b42318; border:1px solid #f5c2c2; }
+    .form-status a{ color:inherit; text-decoration:underline; }
+    #devisForm button[disabled]{ opacity:.7; cursor:wait; }
+  </style>
 </head>
 <body>
   <!-- NAV -->
@@ -55,14 +63,16 @@
         <!-- FORMULAIRE -->
         <div class="card contact-form">
           <h2 class="section-title">Envoyer un message</h2>
-          <p class="sub">Le formulaire ouvre automatiquement votre logiciel de messagerie avec tous les champs pré-remplis.</p>
+          <p class="sub">Décrivez votre besoin : nous vous répondons en général sous 24 h ouvrées.</p>
 
-          <!-- IMPORTANT : tous les mails partent vers transport@dreamteamservice.com -->
-          <form
-            action="mailto:transport@dreamteamservice.com"
-            method="POST"
-            enctype="text/plain"
-          >
+          <!-- Envoi via Web3Forms : les demandes du formulaire arrivent sur exploitation@dreamteamservice.com (adresse liée à la clé d'accès) -->
+          <form id="devisForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="bdb598d2-dd3b-4455-a9cc-fc9c8a185ccf" />
+            <input type="hidden" name="subject" value="Nouvelle demande depuis le site dreamteamservice.com" />
+            <input type="hidden" name="from_name" value="Site Dream Team Transport" />
+            <input type="hidden" name="redirect" value="https://dreamteamservice.com/contact.html?envoye=1" />
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
             <div class="form-row">
               <div class="field">
                 <input type="text" id="nom" name="Nom" required />
@@ -75,7 +85,7 @@
             </div>
 
             <div class="field">
-              <input type="email" id="email" name="Email" required />
+              <input type="email" id="email" name="email" required />
               <label for="email">Adresse e-mail</label>
             </div>
 
@@ -109,6 +119,7 @@
               <button type="submit" class="btn primary">Envoyer le message</button>
               <button type="reset" class="btn outline">Effacer</button>
             </div>
+            <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
           </form>
         </div>
 
@@ -221,6 +232,47 @@
 
   <!-- JS global -->
   <script src="assets/app.js"></script>
+
+  <!-- Envoi du formulaire (Web3Forms) sans quitter la page -->
+  <script>
+    (() => {
+      const form = document.getElementById('devisForm');
+      if (!form) return;
+      const status = document.getElementById('formStatus');
+      const btn = form.querySelector('button[type="submit"]');
+      const OK = 'Merci, votre message a bien été envoyé. Nous vous répondons en général sous 24 h ouvrées.';
+      const ERR = 'L’envoi n’a pas abouti. Réessayez dans un instant ou écrivez-nous directement à <a href="mailto:transport@dreamteamservice.com">transport@dreamteamservice.com</a>.';
+      const show = (type, html) => { status.className = 'form-status ' + type; status.innerHTML = html; status.hidden = false; };
+
+      if (new URLSearchParams(location.search).get('envoye') === '1') show('ok', OK);
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form));
+        delete data.redirect;
+        const sujet = data['Sujet'] || 'Demande de contact';
+        data.subject = 'Site web — ' + sujet + (data['Nom'] ? ' — ' + data['Nom'] : '');
+        const label = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Envoi en cours…'; status.hidden = true;
+        try {
+          const r = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          const j = await r.json().catch(() => ({}));
+          if (!r.ok || !j.success) throw new Error(j.message || 'Erreur');
+          show('ok', OK);
+          form.reset();
+          form.querySelectorAll('.filled').forEach(el => el.classList.remove('filled'));
+        } catch (err) {
+          show('err', ERR);
+        } finally {
+          btn.disabled = false; btn.textContent = label;
+        }
+      });
+    })();
+  </script>
 
   <!-- JS léger pour les labels flottants du formulaire -->
   <script>
