@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dreamteamservice.com/sitemap.xml
